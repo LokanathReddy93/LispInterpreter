@@ -1,0 +1,28 @@
+/* Lokanath Reddy Burujupalli
+ * burujupalli.1@osu.edu
+ * CSE6341 Project Part1*/
+
+The following files have been submitted as part of the CSE6341 Project Part1:
+1) SExp.java
+2) MyParser.java
+3) InterpreterMain.java
+4) ReadMeP1.txt
+5) DesighP1.txt
+6) Makefile
+
+My Implementation:
+	I used three classes in my implementation. They are:
+a) SExp
+b) MyParser
+c) InterpreterMain
+	
+a)SExp:
+	SExp is a class used to describe the basic datastructure I used in making my Interpreter. It can contain an Symbolic atom or an Integer atom or a non-atomic SExpression. This non atomic SExpression points to left and right children which represents the CAR and CDR of the non atomic SExpression. I used a boolean variable to represent if it is a NIL atom (isNIL is true for NIL atom). This also a static hashmap variable that stores the symbolic atoms for reusing the appropriate symbolic atoms instead of recreating them every single time they were used.
+
+b)MyParser:
+	This is the most important part of my implemention for the part1 where the input is parsed and the binary tree is generated. For generating the binary tree, I used two recursive functions as suggested by the professor. The first one is called input() which handles the starting of an SExpression and the dot notation. Whereas the second one is called input2() which handles the ending of an SExpression like ")" or "S2)" or "S2 S3)". Both functions recursively calls each other depending on the current token allowing parsing of both list and dot notations. Another important feature of this class is parsing. I parsed the input into tokens of types "(" or ")" or "." or an identifier (either symbolic or integer) using appropriate regular expressions. I handled the cases of extra whitepaces using regular expressions. The input function also checks for some errors.
+
+c) InterpreterMain:
+	This class has the main function to be called for executing the program. This reads the input data from from stdio and outputs on the console. This also validates if the entered input is an SExpression and outputs the approriate error message if it is not. If the given input is a valid SExpression, then it gets the Binary tree obtained from "MyParser" and outputs the SExpression as Dot notation.
+
+This project is developed by me. I used some ideas discussed by the professor in the comments. I referred to internet for some regular expressions and parsing techniques in Java.
